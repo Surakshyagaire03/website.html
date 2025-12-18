@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Travel Inspiration</title>
   <link rel="stylesheet" href="style.css"/>
+  <script src="script.js"></script>
+
 </head>
 <body>
-
-<header class="navbar">
+  <header class="navbar">
   <div class="logo">
-  <img src="assets/logo.webp" alt="Travel Logo">
-</div>
+    <img src="assets/logo.webp" alt="Travel Logo">
+  </div>
 
   <nav>
     <a href="#">Destinations</a>
@@ -19,7 +20,12 @@
     <a href="#">Stories</a>
     <a href="#">Blog</a>
   </nav>
-  <button class="btn-outline">Sign in</button>
+
+  <div class="navbar-buttons">
+    <button class="btn-outline">Sign in</button>
+    <!-- Theme toggle button -->
+    <button id="themeToggle" class="btn-outline">Dark Mode</button>
+  </div>
 </header>
 
 <!-- Hero section -->
@@ -175,7 +181,43 @@
   </div>
 </section>
 
-      <!-- NEWSLETTER -->
+<!-- signup -->
+ <form id="step1">
+  <h3>Basic Information For Your Safe Travel</h3>
+  <input type="text" id="name" placeholder="Full Name" />
+  <input type="email" id="email" placeholder="Email" />
+  <input type="password" id="password" placeholder="Password" />
+  <button type="button" onclick="saveStep1()">Next</button>
+</form>
+
+<form id="step2" style="display:none;">
+  <h3>Address</h3>
+  <input type="text" id="city" placeholder="City" />
+  <input type="text" id="country" placeholder="Country" />
+  <button type="button" onclick="saveStep2()">Next</button>
+</form>
+
+<form id="step3" style="display:none;">
+  <h3>Qualification</h3>
+  <input type="text" id="degree" placeholder="Degree" />
+  <input type="text" id="university" placeholder="University" />
+  <button type="button" onclick="finalSubmit()">Submit</button>
+</form>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit" class="btn-primary">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
 <section class="newsletter">
   <h2>Get Your Travel Inspiration<br/>Straight to Your Inbox</h2>
   <div class="newsletter-box">
